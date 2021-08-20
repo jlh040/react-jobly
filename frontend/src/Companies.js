@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import JoblyApi from './api';
+import CompanyList from './CompanyList';
 
 const Companies = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -11,10 +12,11 @@ const Companies = () => {
       setHasLoaded(true);
     };
     getCompanies()
-  }, [])
+  }, []);
+
   return (
     <div>
-      {hasLoaded ? companies.map(company => <div>{company.name}</div>) : <h1>Loading...</h1>}
+      {hasLoaded ?  <CompanyList companies={companies}/> : <h1>Loading...</h1>}
     </div>
   )
 };
