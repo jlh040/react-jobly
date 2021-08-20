@@ -7,11 +7,13 @@ import Jobs from './Jobs';
 import Profile from './Profile';
 import SignUp from './SignUp';
 import Login from './Login';
+import NavBar from './NavBar';
 
 const Routes = () => {
   return (
     <div>
       <BrowserRouter>
+        <NavBar />
         <Switch>
           <Route exact path="/">
             <Homepage />
