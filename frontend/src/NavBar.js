@@ -23,7 +23,7 @@ const NavBar = (props) => {
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav className="ms-auto">
             <NavItem>
               <NavLink tag={RRNavLink} exact to="/companies">Companies</NavLink>
             </NavItem>
@@ -36,7 +36,7 @@ const NavBar = (props) => {
             <NavItem>
               <NavLink tag={RRNavLink} exact to="/signup">Sign Up</NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem className="me-3">
               <NavLink tag={RRNavLink} exact to="/login">Login</NavLink>
             </NavItem>
           </Nav>
