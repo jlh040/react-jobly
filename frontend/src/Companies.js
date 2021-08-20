@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import JoblyApi from './api';
+import SearchBar from './SearchBar';
 import CompanyList from './CompanyList';
 
 const Companies = () => {
@@ -16,7 +17,9 @@ const Companies = () => {
 
   return (
     <div>
-      {hasLoaded ?  <CompanyList companies={companies}/> : <h1>Loading...</h1>}
+      {hasLoaded ? (
+        <CompanyList companies={companies} setCompanies={setCompanies} /> 
+      ) : <h3>Loading...</h3>}
     </div>
   )
 };

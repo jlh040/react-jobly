@@ -9,7 +9,7 @@ import {
 const CompanyCard = ({ company }) => {
   return (
     <div>
-      <Card className="my-3">
+      <Card className="my-3" color="light">
         <CardBody>
           <CardTitle tag="h5">
             <CardLink tag={NavLink} exact to={`/companies/${company.handle}`}>
