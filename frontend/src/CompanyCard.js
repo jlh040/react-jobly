@@ -1,7 +1,8 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
+  Card, CardText, CardBody,
+  CardTitle, Button, CardLink
 } from 'reactstrap';
 
 
@@ -9,9 +10,12 @@ const CompanyCard = ({ company }) => {
   return (
     <div>
       <Card className="my-3">
-        <CardImg top width="100%" src={company.logoUrl} alt="Card image cap" />
         <CardBody>
-          <CardTitle tag="h5">{company.name}</CardTitle>
+          <CardTitle tag="h5">
+            <CardLink tag={NavLink} exact to={`/companies/${company.handle}`}>
+              {company.name}
+            </CardLink>
+          </CardTitle>
           <CardText>{company.description}</CardText>
           <Button>Button</Button>
         </CardBody>
