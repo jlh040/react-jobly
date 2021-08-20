@@ -4,6 +4,9 @@ import CompanyCard from './CompanyCard';
 import { Container, Row } from 'reactstrap'
 
 const CompanyList = ({ companies, setCompanies }) => {
+  const handleSubmit = () => {
+    
+  }
   return (
     <Container>
       <SearchBar />
