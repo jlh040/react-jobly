@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, FormGroup, Input, Row, Col } from 'reactstrap';
 
-const SearchBar = () => {
+const SearchBar = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({search: ''});
   const handleChange = e => {
     setFormData(fData => ({
@@ -9,7 +9,7 @@ const SearchBar = () => {
     }))
   }
   return (
-    <Form className="mt-5 mb-3" inline>
+    <Form onSubmit={e => handleSubmit(e, formData)} className="mt-5 mb-3" inline>
       <FormGroup>
       <Input
         type="search"

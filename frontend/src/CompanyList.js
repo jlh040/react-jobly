@@ -1,15 +1,18 @@
 import React from 'react';
+import JoblyApi from './api';
 import SearchBar from './SearchBar';
 import CompanyCard from './CompanyCard';
 import { Container, Row } from 'reactstrap'
 
 const CompanyList = ({ companies, setCompanies }) => {
-  const handleSubmit = () => {
-    
+  const handleSubmit = async (e, formData) => {
+    e.preventDefault();
+    const filteredCompanies = await JoblyApi.searchForCompanies(formData.search);
+    setCompanies(filteredCompanies);
   }
   return (
     <Container>
-      <SearchBar />
+      <SearchBar handleSubmit={handleSubmit} />
       {companies.map(company => <CompanyCard company={company} />)}
     </Container>
   )
