@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Form, FormGroup, Input, Row, Col } from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 const SearchBar = ({ handleSubmit }) => {
   const [formData, setFormData] = useState({search: ''});

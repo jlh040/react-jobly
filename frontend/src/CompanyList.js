@@ -2,7 +2,7 @@ import React from 'react';
 import JoblyApi from './api';
 import SearchBar from './SearchBar';
 import CompanyCard from './CompanyCard';
-import { Container, Row } from 'reactstrap'
+import { Container } from 'reactstrap'
 
 const CompanyList = ({ companies, setCompanies }) => {
   const handleSubmit = async (e, formData) => {

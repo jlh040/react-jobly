@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import JoblyApi from './api';
-import SearchBar from './SearchBar';
 import CompanyList from './CompanyList';
 
 const Companies = () => {
