@@ -72,6 +72,10 @@ class JoblyApi {
       return res.jobs;
     }
   }
+
+  static async signUp(userData) {
+    
+  }
   
   // obviously, you'll add a lot here ...
 }
