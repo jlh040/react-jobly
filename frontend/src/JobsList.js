@@ -1,11 +1,14 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import { Container } from 'reactstrap';
+import JobCard from './JobCard';
 
-const JobsList = () => {
+const JobsList = ({ jobs, setJobs }) => {
   return (
-    <div>
+    <Container >
       <SearchBar />
-    </div>
+      {jobs.map(job => <JobCard job={job} displayCompany />)}
+    </Container>
   )
 };
 
