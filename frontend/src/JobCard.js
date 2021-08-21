@@ -7,7 +7,7 @@ import {
 const JobCard = ({ job, displayCompany, title, salary, equity }) => {
   return (
     <div>
-      <Card className="my-3">
+      <Card className="my-4">
         <CardBody>
           <CardTitle tag="h5">{ job ? job.title : title }</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Salary: { job ? job.salary : salary }</CardSubtitle>

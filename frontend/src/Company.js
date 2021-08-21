@@ -18,7 +18,10 @@ const Company = () => {
   
   return (
     <div>
-      <h1>Company page!</h1>
+      <div>
+        <h2>{company.name}</h2>
+        <p><i>{company.description}</i></p>
+      </div>
       <div>
         {hasLoaded ? (
           company.jobs.map(job => <JobCard title={job.title} salary={job.salary} equity={job.equity} />)
