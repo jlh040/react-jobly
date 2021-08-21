@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import JoblyApi from './api';
-import {
-  Card, CardText, CardBody,
-  CardTitle, Button, CardLink
-} from 'reactstrap';
+import JobCard from './JobCard';
 
 const Company = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -22,18 +19,11 @@ const Company = () => {
   return (
     <div>
       <h1>Company page!</h1>
-      {hasLoaded ? (
-        <div>
-        <Card className="my-3" color="light">
-          <CardBody>
-            <CardTitle tag="h5">
-              {company.name}
-            </CardTitle>
-            <CardText>{company.description}</CardText>
-          </CardBody>
-        </Card>
-        </div>
-      ) : <h4>Loading...</h4>} 
+      <div>
+        {hasLoaded ? (
+          company.jobs.map(job => <JobCard title={job.title} salary={job.salary} equity={job.equity} />)
+        ) : <h4>Loading...</h4>} 
+      </div>
     </div>
   )
 };
