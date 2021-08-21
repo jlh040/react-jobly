@@ -11,7 +11,7 @@ import NavBar from './NavBar';
 
 const Routes = () => {
   return (
-    <div>
+    <div style={{height: '100%'}}>
       <BrowserRouter>
         <NavBar />
         <Switch>
