@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Container } from 'reactstrap';
 import JoblyApi from './api';
 import JobCard from './JobCard';
 
@@ -17,7 +18,7 @@ const Company = () => {
   });
   
   return (
-    <div>
+    <Container>
       <div>
         <h2>{company.name}</h2>
         <p><i>{company.description}</i></p>
@@ -27,7 +28,7 @@ const Company = () => {
           company.jobs.map(job => <JobCard title={job.title} salary={job.salary} equity={job.equity} />)
         ) : <h4>Loading...</h4>} 
       </div>
-    </div>
+    </Container>
   )
 };
 
