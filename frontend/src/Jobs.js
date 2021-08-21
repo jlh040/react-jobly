@@ -1,10 +1,13 @@
 import React from 'react';
+import SearchBar from './SearchBar';
+import JobsList from './JobsList';
+import { Container } from 'reactstrap';
 
 const Jobs = () => {
   return (
-    <div>
-      <h1>Jobs!</h1>
-    </div>
+    <Container>
+      <JobsList />
+    </Container>
   )
 };
 
