@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import UserContext from './userContext';
 import './SignUpForm.css';
 import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 const SignUpForm = () => {
+  const { token, handleSignUp } = useContext(UserContext);
   const initialState = { username: '', password: '', 'first-name': '', 'last-name': '', email: '' };
   const [formData, setFormData] = useState(initialState);
   const handleChange = e => {
@@ -11,13 +13,13 @@ const SignUpForm = () => {
       [e.target.name]: e.target.value
     }))
   };
-  
+
   return (
     <Container className="SignUpForm">
-      <Form className="SignUpForm-form">
+      <Form onSubmit={e => handleSignUp(e, formData)} className="SignUpForm-form">
         <FormGroup row>
           <Col sm={{size: 6, offset: 3}}>
-            <h2 style={{'text-align': 'center'}}>Sign Up</h2>
+            <h2>Sign Up</h2>
             <Label className="SignUpForm-label" for="username">Username</Label>
             <Input 
               type="text" 
@@ -85,6 +87,7 @@ const SignUpForm = () => {
             <Button color="primary">Submit</Button>
         </div>
       </Form>
+      {token ? token : 'NO TOKEN'}
     </Container>
   )
 };
