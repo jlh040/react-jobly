@@ -15,3 +15,8 @@
     margin-top: 20px; 
     margin-bottom: 20px; 
 }
+
+.LoginForm-button {
+    display:flex;
+    justify-content: center;
+}

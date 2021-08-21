@@ -19,7 +19,9 @@ const LoginForm = () => {
             <Input type="password" name="password" id="password" placeholder="Password" />
           </Col>
         </FormGroup>
-        <Button color="primary">Submit</Button>
+        <div className="LoginForm-button">
+          <Button color="primary">Submit</Button>
+        </div>
       </Form>
     </Container>
   )
