@@ -9,7 +9,7 @@ const LoginForm = () => {
         <FormGroup row>
           <Col sm={{size: 6, offset: 3}}>
             <h2>Log In</h2>
-            <Label className="LoginForm-label" for="username">Email</Label>
+            <Label className="LoginForm-label" for="username">Username</Label>
             <Input type="text" name="username" id="username" placeholder="Username" />
           </Col>
         </FormGroup>
@@ -19,7 +19,7 @@ const LoginForm = () => {
             <Input type="password" name="password" id="password" placeholder="Password" />
           </Col>
         </FormGroup>
-        <Button>Submit</Button>
+        <Button color="primary">Submit</Button>
       </Form>
     </Container>
   )

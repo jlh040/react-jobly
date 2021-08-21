@@ -1,11 +1,12 @@
 import React from 'react';
+import SignUpForm from './SignUpForm';
 
 const SignUp = () => {
   return (
-    <div>
-      <h1>Sign Up!</h1>
+    <div style={{height: '100%'}}>
+      <SignUpForm />
     </div>
   )
 };
 
-export default SignUp
+export default SignUp;
