@@ -5,6 +5,7 @@ import UserContext from './userContext';
 import useSignUp from './hooks/useSignUp';
 import useLogin from './hooks/useLogin';
 import useGetUser from './hooks/useGetUser';
+import useLocalStorage from './hooks/useLocalStorage';
 import JoblyApi from './api';
 
 function App() {
