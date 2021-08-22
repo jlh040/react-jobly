@@ -4,7 +4,7 @@ import './SignUpForm.css';
 import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 const SignUpForm = () => {
-  const { token, handleSignUp } = useContext(UserContext);
+  const { tokenFromSignUp: token, handleSignUp } = useContext(UserContext);
   const initialState = { username: '', password: '', 'first-name': '', 'last-name': '', email: '' };
   const [formData, setFormData] = useState(initialState);
   const handleChange = e => {
