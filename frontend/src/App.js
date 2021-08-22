@@ -14,7 +14,17 @@ function App() {
 
   return (
     <div className="App">
-      <UserContext.Provider value={{user, setUser, JoblyApi, tokenFromSignUp, setTokenFromSignUp, handleSignUp, tokenFromLogin, setTokenFromLogin, handleLogin}}>
+      <UserContext.Provider value={{
+          user, 
+          setUser, 
+          JoblyApi, 
+          tokenFromSignUp, 
+          setTokenFromSignUp, 
+          handleSignUp, 
+          tokenFromLogin, 
+          setTokenFromLogin, 
+          handleLogin}}
+      >
         <Routes />
       </UserContext.Provider>
     </div>
