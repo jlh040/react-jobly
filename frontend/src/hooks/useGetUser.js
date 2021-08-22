@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import JoblyApi from '../api';
+import { useState, useEffect } from 'react';
 
-const useGetUser = (tokenFromLogin, tokenFromSignUp) => {
+const useGetUser = (tokenFromLogin, tokenFromSignUp, JoblyApi) => {
   const [user, setUser] = useState();
 
   useEffect(() => {
@@ -11,13 +10,14 @@ const useGetUser = (tokenFromLogin, tokenFromSignUp) => {
       }
       else {
         const userResp = await JoblyApi.getUser(tokenFromSignUp || tokenFromLogin);
+        JoblyApi.token = tokenFromLogin || tokenFromSignUp;
         setUser(userResp);
       }
     };
     getInformation();
   }, [tokenFromLogin, tokenFromSignUp]);
 
-  return [user, setUser];
+  return [user, setUser, JoblyApi];
 };
 
 export default useGetUser;

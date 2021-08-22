@@ -5,16 +5,17 @@ import UserContext from './userContext';
 import useSignUp from './hooks/useSignUp';
 import useLogin from './hooks/useLogin';
 import useGetUser from './hooks/useGetUser';
+import JoblyApi from './api';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [tokenFromSignUp, handleSignUp] = useSignUp();
   const [tokenFromLogin, handleLogin] = useLogin();
-  const [user, setUser] = useGetUser(tokenFromLogin, tokenFromSignUp);
+  const [user, setUser] = useGetUser(tokenFromLogin, tokenFromSignUp, JoblyApi);
 
   return (
     <div className="App">
-      <UserContext.Provider value={{user, tokenFromSignUp, handleSignUp, tokenFromLogin, handleLogin}}>
+      <UserContext.Provider value={{user, JoblyApi, tokenFromSignUp, handleSignUp, tokenFromLogin, handleLogin}}>
         <Routes />
       </UserContext.Provider>
     </div>
