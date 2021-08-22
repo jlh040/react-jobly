@@ -14,7 +14,7 @@ const CompanyList = ({ companies, setCompanies }) => {
   return (
     <Container>
       <SearchBar handleSubmit={handleSubmit} />
-      {companies.map(company => <CompanyCard company={company} />)}
+      {companies.map(company => <CompanyCard key={company.handle} company={company} />)}
     </Container>
   )
 };
