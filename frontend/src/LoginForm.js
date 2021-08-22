@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import UserContext from './userContext';
 import './LoginForm.css';
 import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 const LoginForm = () => {
-  const { tokenFromLogin: token, handleLogin };
+  const { tokenFromLogin: token, handleLogin } = useContext(UserContext);
   const initialState = { username: '', password: ''};
   const [formData, setFormData] = useState(initialState);
   const handleChange = e => {
@@ -16,7 +16,7 @@ const LoginForm = () => {
   
   return (
     <Container className="LoginForm">
-      <Form onSubmit={handleLogin} className="LoginForm-form">
+      <Form onSubmit={e => handleLogin(e, formData)} className="LoginForm-form">
         <FormGroup row>
           <Col sm={{size: 6, offset: 3}}>
             <h2>Log In</h2>
