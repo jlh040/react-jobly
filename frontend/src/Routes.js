@@ -11,7 +11,7 @@ import Login from './Login';
 import Logout from './Logout';
 import NavBar from './NavBar';
 
-const Routes = ({ user }) => {
+const Routes = () => {
   const isLoggedIn = useIsLoggedIn();
   return (
     <div style={{height: '100%'}}>
@@ -30,7 +30,7 @@ const Routes = ({ user }) => {
           {isLoggedIn ? <Jobs /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/profile">
-          <Profile />
+          {isLoggedIn ? <Profile /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/signup">
           <SignUp />

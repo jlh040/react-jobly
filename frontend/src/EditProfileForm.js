@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
 import UserContext from './userContext';
 import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import './EditProfileForm.css';
 
 const EditProfileForm = () => {
-  const { handleSignUp, user } = useContext(UserContext);
+  const { tokenFromSignUp: token, handleSignUp } = useContext(UserContext);
   const initialState = { password: '', 'first-name': '', 'last-name': '', email: '' };
   const [formData, setFormData] = useState(initialState);
   const handleChange = e => {
@@ -14,18 +15,25 @@ const EditProfileForm = () => {
   };
 
   return (
-    <Container className="SignUpForm">
-      <Form onSubmit={e => handleSignUp(e, formData)} className="SignUpForm-form">
+    <Container className="EditProfileForm">
+      <Form onSubmit={e => handleSignUp(e, formData)} className="EditProfileForm-form">
         <FormGroup row>
           <Col sm={{size: 6, offset: 3}}>
-            <h2>Profile</h2>
-            <Label className="SignUpForm-label" for="username">Username</Label>
-            <h5>{user.username}</h5>
+            <h2>Sign Up</h2>
+            <Label className="EditProfileForm-label" for="username">Username</Label>
+            <Input 
+              type="text" 
+              name="username" 
+              value={formData.username} 
+              id="username"
+              onChange={handleChange} 
+              placeholder="Username" 
+            />
           </Col>
         </FormGroup>
         <FormGroup className="my-4" row>
           <Col sm={{size: 6, offset: 3}}>
-            <Label className="SignUpForm-label" for="password">Password</Label>
+            <Label className="EditProfileForm-label" for="password">Password</Label>
             <Input 
               type="password" 
               name="password" 
@@ -38,7 +46,7 @@ const EditProfileForm = () => {
         </FormGroup>
         <FormGroup className="my-4" row>
           <Col sm={{size: 6, offset: 3}}>
-            <Label className="SignUpForm-label" for="first-name">First name</Label>
+            <Label className="EditProfileForm-label" for="first-name">First name</Label>
             <Input 
               type="text" 
               name="first-name" 
@@ -51,7 +59,7 @@ const EditProfileForm = () => {
         </FormGroup>
         <FormGroup className="my-4" row>
           <Col sm={{size: 6, offset: 3}}>
-            <Label className="SignUpForm-label" for="last-name">Last name</Label>
+            <Label className="EditProfileForm-label" for="last-name">Last name</Label>
             <Input 
               type="text" 
               name="last-name" 
@@ -64,7 +72,7 @@ const EditProfileForm = () => {
         </FormGroup>
         <FormGroup className="my-4" row>
           <Col sm={{size: 6, offset: 3}}>
-            <Label className="SignUpForm-label" for="email">Email</Label>
+            <Label className="EditProfileForm-label" for="email">Email</Label>
             <Input 
             type="email" 
             name="email" 
@@ -75,7 +83,7 @@ const EditProfileForm = () => {
           />
           </Col>
         </FormGroup>
-        <div className="SignUpForm-button">
+        <div className="EditProfileForm-button">
             <Button color="primary">Submit</Button>
         </div>
       </Form>
@@ -83,4 +91,4 @@ const EditProfileForm = () => {
   )
 };
 
-export default EditProfileForm
+export default EditProfileForm;

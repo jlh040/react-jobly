@@ -18,7 +18,7 @@ function App() {
     <div className="App">
       <UserContext.Provider value={{
           user, 
-          setUser, 
+          setUser,
           JoblyApi, 
           tokenFromSignUp, 
           setTokenFromSignUp, 
