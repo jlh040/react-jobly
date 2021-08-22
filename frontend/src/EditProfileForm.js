@@ -4,7 +4,7 @@ import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstra
 import './EditProfileForm.css';
 
 const EditProfileForm = () => {
-  const { tokenFromSignUp: token, handleSignUp } = useContext(UserContext);
+  const { user, handleSignUp } = useContext(UserContext);
   const initialState = { password: '', 'first-name': '', 'last-name': '', email: '' };
   const [formData, setFormData] = useState(initialState);
   const handleChange = e => {
@@ -19,16 +19,10 @@ const EditProfileForm = () => {
       <Form onSubmit={e => handleSignUp(e, formData)} className="EditProfileForm-form">
         <FormGroup row>
           <Col sm={{size: 6, offset: 3}}>
-            <h2>Sign Up</h2>
+            <h2>Profile</h2>
+            <hr/>
             <Label className="EditProfileForm-label" for="username">Username</Label>
-            <Input 
-              type="text" 
-              name="username" 
-              value={formData.username} 
-              id="username"
-              onChange={handleChange} 
-              placeholder="Username" 
-            />
+            {user ? <h6>{user.username}</h6> : ''}
           </Col>
         </FormGroup>
         <FormGroup className="my-4" row>
