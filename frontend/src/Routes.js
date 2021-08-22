@@ -1,4 +1,5 @@
 import React from 'react';
+import useIsLoggedIn from './hooks/useIsLoggedIn';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import Homepage from './Homepage';
 import Companies from './Companies';
@@ -11,6 +12,7 @@ import Logout from './Logout';
 import NavBar from './NavBar';
 
 const Routes = ({ user }) => {
+  const isLoggedIn = useIsLoggedIn();
   return (
     <div style={{height: '100%'}}>
       <NavBar />
@@ -19,13 +21,13 @@ const Routes = ({ user }) => {
           <Homepage />
         </Route>
         <Route exact path="/companies">
-          <Companies />
+          {isLoggedIn ? <Companies /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/companies/:handle">
-          <Company />
+          {isLoggedIn ? <Company /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/jobs">
-          <Jobs />
+          {isLoggedIn ? <Jobs /> : <Redirect to="/login" />}
         </Route>
         <Route exact path="/profile">
           <Profile />

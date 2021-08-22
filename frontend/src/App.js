@@ -29,7 +29,7 @@ function App() {
           setTFLS
         }}
       >
-        <Routes user={user} />
+        <Routes />
       </UserContext.Provider>
     </div>
   );

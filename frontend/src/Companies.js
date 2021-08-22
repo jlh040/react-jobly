@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 import UserContext from './userContext';
 import CompanyList from './CompanyList';
 
