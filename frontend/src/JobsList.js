@@ -14,7 +14,7 @@ const JobsList = ({ jobs, setJobs }) => {
   return (
     <Container >
       <SearchBar handleSubmit={handleSubmit} />
-      {jobs.map(job => <JobCard job={job} displayCompany />)}
+      {jobs.map(job => <JobCard key={job.id} job={job} displayCompany />)}
     </Container>
   )
 };
