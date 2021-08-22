@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import UserContext from './userContext';
 import JobsList from './JobsList';
-import JoblyApi from './api';
 
 const Jobs = () => {
+  const { JoblyApi } = useContext(UserContext);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [jobs, setJobs] = useState([]);
   useEffect(() => {

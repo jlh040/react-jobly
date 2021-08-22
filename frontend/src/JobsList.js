@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import UserContext from './userContext';
 import SearchBar from './SearchBar';
 import { Container } from 'reactstrap';
 import JobCard from './JobCard';
-import JoblyApi from './api';
 
 const JobsList = ({ jobs, setJobs }) => {
+  const { JoblyApi } = useContext(UserContext)
   const handleSubmit = async (e, formData) => {
     e.preventDefault();
     const jobs = await JoblyApi.searchForJobs(formData.search);

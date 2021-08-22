@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import UserContext from './userContext';
 import { useParams } from 'react-router-dom';
 import { Container } from 'reactstrap';
-import JoblyApi from './api';
 import JobCard from './JobCard';
 
 const Company = () => {
+  const { JoblyApi } = useContext(UserContext);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [company, setCompany] = useState({});
   const { handle } = useParams()
