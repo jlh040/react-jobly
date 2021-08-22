@@ -10,3 +10,7 @@
     position: absolute;
     top: 20%;
 }
+
+h1, h3 {
+    text-align: center;
+}
