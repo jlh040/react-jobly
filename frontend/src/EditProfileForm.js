@@ -5,7 +5,12 @@ import './EditProfileForm.css';
 
 const EditProfileForm = () => {
   const { user, handleSignUp } = useContext(UserContext);
-  const initialState = { password: '', 'first-name': '', 'last-name': '', email: '' };
+  const initialState = { 
+    password: '', 
+    'first-name': user ? user.firstName : '', 
+    'last-name': user ? user.lastName : '', 
+    email: user ? user.email : '' 
+  };
   const [formData, setFormData] = useState(initialState);
   const handleChange = e => {
     setFormData(fData => ({
@@ -23,19 +28,6 @@ const EditProfileForm = () => {
             <hr/>
             <Label className="EditProfileForm-label" for="username">Username</Label>
             {user ? <h6>{user.username}</h6> : ''}
-          </Col>
-        </FormGroup>
-        <FormGroup className="my-4" row>
-          <Col sm={{size: 6, offset: 3}}>
-            <Label className="EditProfileForm-label" for="password">Password</Label>
-            <Input 
-              type="password" 
-              name="password" 
-              value={formData.password} 
-              id="password"
-              onChange={handleChange} 
-              placeholder="Password" 
-            />
           </Col>
         </FormGroup>
         <FormGroup className="my-4" row>
