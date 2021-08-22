@@ -1,21 +1,22 @@
 import { useState, useEffect } from 'react';
 
-const useGetUser = (tokenFromLogin, tokenFromSignUp, JoblyApi) => {
+const useGetUser = (tokenFromLogin, tokenFromSignUp, tokenFromLocalStorage, JoblyApi) => {
   const [user, setUser] = useState();
 
   useEffect(() => {
     const getInformation = async () => {
-      if (!(tokenFromLogin || tokenFromSignUp)) {
+      console.log(!!tokenFromLocalStorage, !!tokenFromLogin, !!tokenFromSignUp)
+      if (!(tokenFromLocalStorage || tokenFromLogin || tokenFromSignUp)) {
         if (user) setUser(null);
         return;
       }
       else {
-        const userResp = await JoblyApi.getUser(tokenFromSignUp || tokenFromLogin);
+        const userResp = await JoblyApi.getUser(tokenFromLocalStorage || tokenFromSignUp || tokenFromLogin);
         setUser(userResp);
       }
     };
     getInformation();
-  }, [tokenFromLogin, tokenFromSignUp, JoblyApi]);
+  }, [tokenFromLogin, tokenFromSignUp, tokenFromLocalStorage, JoblyApi]);
 
   return [user, setUser, JoblyApi];
 };

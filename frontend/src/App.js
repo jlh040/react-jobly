@@ -11,7 +11,8 @@ import JoblyApi from './api';
 function App() {
   const [tokenFromSignUp, setTokenFromSignUp, handleSignUp] = useSignUp(JoblyApi);
   const [tokenFromLogin, setTokenFromLogin, handleLogin] = useLogin(JoblyApi);
-  const [user, setUser] = useGetUser(tokenFromLogin, tokenFromSignUp, JoblyApi);
+  const [tokenFromLocalStorage, setTFLS] = useLocalStorage('token', tokenFromLogin, tokenFromSignUp, JoblyApi);
+  const [user, setUser] = useGetUser(tokenFromLogin, tokenFromSignUp, tokenFromLocalStorage, JoblyApi);
 
   return (
     <div className="App">
@@ -24,7 +25,8 @@ function App() {
           handleSignUp, 
           tokenFromLogin, 
           setTokenFromLogin, 
-          handleLogin
+          handleLogin,
+          setTFLS
         }}
       >
         <Routes />
