@@ -7,6 +7,7 @@ import Jobs from './Jobs';
 import Profile from './Profile';
 import SignUp from './SignUp';
 import Login from './Login';
+import Logout from './Logout';
 import NavBar from './NavBar';
 
 const Routes = () => {
@@ -34,6 +35,9 @@ const Routes = () => {
         </Route>
         <Route exact path="/login">
           <Login />
+        </Route>
+        <Route exact path="/logout">
+          <Logout />
         </Route>
       </Switch>
     </div>

@@ -12,7 +12,7 @@ const useLogin = (JoblyApi) => {
     history.push('/')
   };
 
-  return [token, handleLogin];
+  return [token, setToken, handleLogin];
 };
 
 export default useLogin;

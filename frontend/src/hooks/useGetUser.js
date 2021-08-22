@@ -6,6 +6,7 @@ const useGetUser = (tokenFromLogin, tokenFromSignUp, JoblyApi) => {
   useEffect(() => {
     const getInformation = async () => {
       if (!(tokenFromLogin || tokenFromSignUp)) {
+        if (user) setUser(null);
         return;
       }
       else {

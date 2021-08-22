@@ -8,13 +8,13 @@ import useGetUser from './hooks/useGetUser';
 import JoblyApi from './api';
 
 function App() {
-  const [tokenFromSignUp, handleSignUp] = useSignUp(JoblyApi);
-  const [tokenFromLogin, handleLogin] = useLogin(JoblyApi);
+  const [tokenFromSignUp, setTokenFromSignUp, handleSignUp] = useSignUp(JoblyApi);
+  const [tokenFromLogin, setTokenFromLogin, handleLogin] = useLogin(JoblyApi);
   const [user, setUser] = useGetUser(tokenFromLogin, tokenFromSignUp, JoblyApi);
 
   return (
     <div className="App">
-      <UserContext.Provider value={{user, JoblyApi, tokenFromSignUp, handleSignUp, tokenFromLogin, handleLogin}}>
+      <UserContext.Provider value={{user, setUser, JoblyApi, tokenFromSignUp, setTokenFromSignUp, handleSignUp, tokenFromLogin, setTokenFromLogin, handleLogin}}>
         <Routes />
       </UserContext.Provider>
     </div>

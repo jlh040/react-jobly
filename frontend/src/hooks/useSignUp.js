@@ -12,7 +12,7 @@ const useSignUp = (JoblyApi) => {
     history.push('/');
   };
 
-  return [token, handleSignUp];
+  return [token, setToken, handleSignUp];
 };
 
 export default useSignUp;
