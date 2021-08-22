@@ -10,12 +10,11 @@ const useGetUser = (tokenFromLogin, tokenFromSignUp, JoblyApi) => {
       }
       else {
         const userResp = await JoblyApi.getUser(tokenFromSignUp || tokenFromLogin);
-        JoblyApi.token = tokenFromLogin || tokenFromSignUp;
         setUser(userResp);
       }
     };
     getInformation();
-  }, [tokenFromLogin, tokenFromSignUp]);
+  }, [tokenFromLogin, tokenFromSignUp, JoblyApi]);
 
   return [user, setUser, JoblyApi];
 };

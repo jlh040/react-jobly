@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import Routes from './Routes';
 import UserContext from './userContext';
@@ -8,8 +8,8 @@ import useGetUser from './hooks/useGetUser';
 import JoblyApi from './api';
 
 function App() {
-  const [tokenFromSignUp, handleSignUp] = useSignUp();
-  const [tokenFromLogin, handleLogin] = useLogin();
+  const [tokenFromSignUp, handleSignUp] = useSignUp(JoblyApi);
+  const [tokenFromLogin, handleLogin] = useLogin(JoblyApi);
   const [user, setUser] = useGetUser(tokenFromLogin, tokenFromSignUp, JoblyApi);
 
   return (
