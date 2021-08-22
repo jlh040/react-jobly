@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import Homepage from './Homepage';
 import Companies from './Companies';
 import Company from './Company';
@@ -10,7 +10,7 @@ import Login from './Login';
 import Logout from './Logout';
 import NavBar from './NavBar';
 
-const Routes = () => {
+const Routes = ({ user }) => {
   return (
     <div style={{height: '100%'}}>
       <NavBar />
@@ -19,13 +19,13 @@ const Routes = () => {
           <Homepage />
         </Route>
         <Route exact path="/companies">
-          <Companies />
+          {user ? <Companies /> : <Redirect to="/" />}
         </Route>
         <Route exact path="/companies/:handle">
-          <Company />
+          {user ? <Company /> : <Redirect to="/" />}
         </Route>
         <Route exact path="/jobs">
-          <Jobs />
+          {user ? <Jobs /> : <Redirect to="/" />}
         </Route>
         <Route exact path="/profile">
           <Profile />
