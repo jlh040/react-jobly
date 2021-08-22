@@ -4,7 +4,7 @@ import './LoginForm.css';
 import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 const LoginForm = () => {
-  const { tokenFromLogin: token, handleLogin } = useContext(UserContext);
+  const { user, tokenFromLogin: token, handleLogin } = useContext(UserContext);
   const initialState = { username: '', password: ''};
   const [formData, setFormData] = useState(initialState);
   const handleChange = e => {
@@ -49,6 +49,7 @@ const LoginForm = () => {
         </div>
       </Form>
       {token ? <h1>{token}</h1> : <h1>No token</h1>}
+      {user ? <h1>{user.email}</h1> : <h1>No user</h1>}
     </Container>
   )
 };

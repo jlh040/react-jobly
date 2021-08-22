@@ -1,4 +1,5 @@
 import axios from "axios";
+import jwt from "jsonwebtoken";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
@@ -87,13 +88,19 @@ class JoblyApi {
     const res = await this.request('auth/token', userData, 'post');
     return res.token;
   }
+
+  static async getUser(token) {
+    let username = jwt.decode(token).username;
+    let res = await this.request(`users/${username}`);
+    return res.user;
+  }
   
   // obviously, you'll add a lot here ...
 }
 
 // for now, put token ("testuser" / "password" on class)
-JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ" +
-    "SI6InRlc3R1c2VyIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTU5ODE1OTI1OX0." +
-    "FtrMwBQwe6Ue-glIFgz_Nf8XxRT2YecFCiSpYL0fCXc";
+JoblyApi.token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im" + 
+    "1hcmsiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2Mjk1OTM1Mzh9" + 
+    ".bHfJaUu0zo8gumetwVickl08KlxUHX5LkrNidQhL82A"
 
 export default JoblyApi;
