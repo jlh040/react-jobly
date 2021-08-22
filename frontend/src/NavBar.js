@@ -39,7 +39,7 @@ const NavBar = (props) => {
                   <NavLink tag={RRNavLink} exact to="/profile">Profile</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={RRNavLink} exact to="/profile">Logout</NavLink>
+                  <NavLink tag={RRNavLink} exact to="/logout">Log out {user.firstName}</NavLink>
                 </NavItem>
               </>
             )}
