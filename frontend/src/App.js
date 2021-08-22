@@ -8,7 +8,6 @@ import useGetUser from './hooks/useGetUser';
 import JoblyApi from './api';
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [tokenFromSignUp, handleSignUp] = useSignUp();
   const [tokenFromLogin, handleLogin] = useLogin();
   const [user, setUser] = useGetUser(tokenFromLogin, tokenFromSignUp, JoblyApi);
