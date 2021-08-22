@@ -3,7 +3,7 @@ import UserContext from './userContext';
 import CompanyList from './CompanyList';
 
 const Companies = () => {
-  const { JoblyApi } = useContext(UserContext);
+  const { JoblyApi, user } = useContext(UserContext);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [companies, setCompanies] = useState([]);
   useEffect(() => {

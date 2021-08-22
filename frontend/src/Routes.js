@@ -19,13 +19,13 @@ const Routes = ({ user }) => {
           <Homepage />
         </Route>
         <Route exact path="/companies">
-          {user ? <Companies /> : <Redirect to="/" />}
+          <Companies />
         </Route>
         <Route exact path="/companies/:handle">
-          {user ? <Company /> : <Redirect to="/" />}
+          <Company />
         </Route>
         <Route exact path="/jobs">
-          {user ? <Jobs /> : <Redirect to="/" />}
+          <Jobs />
         </Route>
         <Route exact path="/profile">
           <Profile />
