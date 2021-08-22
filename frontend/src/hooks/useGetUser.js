@@ -5,7 +5,6 @@ const useGetUser = (tokenFromLogin, tokenFromSignUp, tokenFromLocalStorage, Jobl
 
   useEffect(() => {
     const getInformation = async () => {
-      console.log(!!tokenFromLocalStorage, !!tokenFromLogin, !!tokenFromSignUp)
       if (!(tokenFromLocalStorage || tokenFromLogin || tokenFromSignUp)) {
         if (user) setUser(null);
         return;

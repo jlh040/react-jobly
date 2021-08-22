@@ -5,12 +5,10 @@ const useLocalStorage = (key, tokenFromLogin, tokenFromSignUp, JoblyApi) => {
     try {
       if (JSON.parse(window.localStorage.getItem(key))) {
         const { token } = JSON.parse(window.localStorage.getItem(key))
-        console.log(token);
         return token;
       }
     }
     catch(e) {
-      console.log(e)
       alert('Local storage realized an error!');
     }
   });
