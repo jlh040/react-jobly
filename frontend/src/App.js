@@ -23,7 +23,8 @@ function App() {
           handleSignUp, 
           tokenFromLogin, 
           setTokenFromLogin, 
-          handleLogin}}
+          handleLogin
+        }}
       >
         <Routes />
       </UserContext.Provider>
