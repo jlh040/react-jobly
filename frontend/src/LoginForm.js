@@ -4,7 +4,7 @@ import './LoginForm.css';
 import { Container, Button, Alert, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 const LoginForm = () => {
-  const [showMessage, setShowMessage] = useState(null);
+  const [showMessage, setShowMessage] = useState(false);
   const { handleLogin } = useContext(UserContext);
   const initialState = { username: '', password: ''};
   const [formData, setFormData] = useState(initialState);

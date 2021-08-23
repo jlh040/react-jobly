@@ -1,9 +1,10 @@
 import React, { useState, useContext } from 'react';
 import UserContext from './userContext';
 import './SignUpForm.css';
-import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import { Container, Button, Alert, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 const SignUpForm = () => {
+  const [showMessage, setShowMessage] = useState(false);
   const { tokenFromSignUp: token, handleSignUp } = useContext(UserContext);
   const initialState = { username: '', password: '', 'first-name': '', 'last-name': '', email: '' };
   const [formData, setFormData] = useState(initialState);
@@ -16,7 +17,7 @@ const SignUpForm = () => {
 
   return (
     <Container className="SignUpForm">
-      <Form onSubmit={e => handleSignUp(e, formData)} className="SignUpForm-form">
+      <Form onSubmit={e => handleSignUp(e, formData, setShowMessage)} className="SignUpForm-form">
         <FormGroup row>
           <Col sm={{size: 6, offset: 3}}>
             <h2>Sign Up</h2>
@@ -83,11 +84,13 @@ const SignUpForm = () => {
           />
           </Col>
         </FormGroup>
+        <Col sm={{size: 6, offset: 3}}>
+          {showMessage && <Alert color="danger">{showMessage}</Alert>}
+        </Col>
         <div className="SignUpForm-button">
             <Button color="primary">Submit</Button>
         </div>
       </Form>
-      {token ? token : 'NO TOKEN'}
     </Container>
   )
 };
