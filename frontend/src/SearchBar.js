@@ -18,7 +18,7 @@ const SearchBar = ({ handleSubmit }) => {
         onChange={handleChange}
       />
       </FormGroup>
-      <Button className="mt-3">Search</Button>
+      <Button color="primary" className="mt-3">Search</Button>
     </Form>
   )
 };
