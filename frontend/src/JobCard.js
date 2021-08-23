@@ -28,7 +28,9 @@ const JobCard = ({ job, displayCompany, applyForJob, user, setUser }) => {
             { displayCompany ? job.companyName : '' }
           </CardText>
           <div>
-            <Button onClick={handleClick} color="primary">{hasApplied ? 'Applied' : 'Apply'}</Button>
+            <Button onClick={handleClick} color="primary" disabled={hasApplied ? true : false}>
+              {hasApplied ? 'Applied' : 'Apply'}
+            </Button>
           </div>
         </CardBody>
       </Card>
