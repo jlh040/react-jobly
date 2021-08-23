@@ -14,7 +14,7 @@ const useLogin = (JoblyApi) => {
     }
     catch(err) {
       setShowMessage(
-        <div>Invalid username/password</div>
+        'Invalid username/password'
       )
     }
   };
