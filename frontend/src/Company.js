@@ -16,7 +16,7 @@ const Company = () => {
       setHasLoaded(true);
     };
     getAndReload(handle)
-  });
+  }, []);
   
   return (
     <Container>
