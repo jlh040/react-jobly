@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import UserContext from './userContext';
 import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 import './EditProfileForm.css';
 
 const EditProfileForm = () => {
-  const { user, handleUpdate } = useContext(UserContext);
+  const { user, handleUpdate, setUser } = useContext(UserContext);
   const initialState = { 
     password: '', 
     'first-name': user ? user.firstName : '', 
@@ -18,6 +18,10 @@ const EditProfileForm = () => {
       [e.target.name]: e.target.value
     }))
   };
+  useEffect(() => {
+    if (user)
+    setFormData({"first-name": user.firstName, "last-name": user.lastName, email: user.email});
+  }, [user])
 
   return (
     <Container className="EditProfileForm">
