@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Card, CardText, CardBody,
-  CardTitle, CardSubtitle
+  CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
 const JobCard = ({ job, displayCompany, title, salary, equity }) => {
@@ -15,6 +15,9 @@ const JobCard = ({ job, displayCompany, title, salary, equity }) => {
           <CardText>
             { displayCompany ? job.companyName : '' }
           </CardText>
+          <div>
+            <Button onClick={handleClick} color="primary">Apply</Button>
+          </div>
         </CardBody>
       </Card>
     </div>
