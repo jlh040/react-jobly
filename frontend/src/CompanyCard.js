@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom'
 import {
   Card, CardText, CardBody,
-  CardTitle, Button, CardLink
+  CardTitle, CardLink
 } from 'reactstrap';
 import './CompanyCard.css';
 

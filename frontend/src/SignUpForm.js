@@ -5,7 +5,7 @@ import { Container, Button, Alert, Form, FormGroup, Label, Input, Col } from 're
 
 const SignUpForm = () => {
   const [showMessage, setShowMessage] = useState(false);
-  const { tokenFromSignUp: token, handleSignUp } = useContext(UserContext);
+  const { handleSignUp } = useContext(UserContext);
   const initialState = { username: '', password: '', 'first-name': '', 'last-name': '', email: '' };
   const [formData, setFormData] = useState(initialState);
   const handleChange = e => {

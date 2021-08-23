@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import JoblyApi from '../api';
 
 const useApplyForJob = () => {
