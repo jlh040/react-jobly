@@ -5,7 +5,7 @@ import { Container } from 'reactstrap';
 import JobCard from './JobCard';
 
 const Company = () => {
-  const { JoblyApi, user } = useContext(UserContext);
+  const { JoblyApi, user, applyForJob, setUser } = useContext(UserContext);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [company, setCompany] = useState({});
   const { handle } = useParams()
@@ -26,7 +26,7 @@ const Company = () => {
       </div>
       <div>
         {hasLoaded ? (
-          company.jobs.map(job => <JobCard user={user} job={job} />)
+          company.jobs.map(job => <JobCard user={user} setUser={setUser} job={job} applyForJob={applyForJob} />)
         ) : <h4>Loading...</h4>} 
       </div>
     </Container>

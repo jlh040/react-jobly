@@ -7,13 +7,15 @@ import useLogin from './hooks/useLogin';
 import useGetUser from './hooks/useGetUser';
 import useUserUpdate from './hooks/useUserUpdate';
 import useLocalStorage from './hooks/useLocalStorage';
+import useApplyForJob from './hooks/useApplyForJob';
 import JoblyApi from './api';
 
 function App() {
   const [tokenFromSignUp, setTokenFromSignUp, handleSignUp] = useSignUp(JoblyApi);
   const [tokenFromLogin, setTokenFromLogin, handleLogin] = useLogin(JoblyApi);
-  const [tokenFromLocalStorage, setTFLS] = useLocalStorage('token', tokenFromLogin, tokenFromSignUp, JoblyApi);
+  const tokenFromLocalStorage = useLocalStorage('token', tokenFromLogin, tokenFromSignUp, JoblyApi);
   const [user, setUser] = useGetUser(tokenFromLogin, tokenFromSignUp, tokenFromLocalStorage, JoblyApi);
+  const applyForJob = useApplyForJob();
   const handleUpdate = useUserUpdate(setUser);
 
   return (
@@ -29,7 +31,7 @@ function App() {
           setTokenFromLogin, 
           handleLogin,
           handleUpdate,
-          setTFLS
+          applyForJob
         }}
       >
         <Routes />

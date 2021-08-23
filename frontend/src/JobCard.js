@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import useApplyForJob from './hooks/useApplyForJob';
 import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
-const JobCard = ({ user, setUser, job, displayCompany }) => {
-  const applyForJob = useApplyForJob();
-  const [hasApplied, setHasApplied] = useState(user ? user.applications.includes(job.id) : false);
+const JobCard = ({ job, displayCompany, applyForJob, user, setUser }) => {
+  const [hasApplied, setHasApplied] = useState(false);
   const handleClick = async () => {
     if (!hasApplied) {
-      await applyForJob(user, job);
+      const updatedUser = await applyForJob(user, job);
+      setUser(updatedUser);
       setHasApplied(true);
     }
   };
   useEffect(() => {
-    if (user && user.applications.includes(job.id)) {
-      setHasApplied(true);
+    if (user) {
+      if (user.applications.includes(job.id)) {
+        setHasApplied(true);
+      }
     }
   },[user])
   return (

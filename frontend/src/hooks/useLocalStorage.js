@@ -29,7 +29,7 @@ const useLocalStorage = (key, tokenFromLogin, tokenFromSignUp, JoblyApi) => {
       window.localStorage.setItem(key, `{"token": null}`);
     }
   }, [state, tokenFromLogin, tokenFromSignUp, JoblyApi, key]);
-  return [state, setState];
+  return state;
 };
 
 export default useLocalStorage;
