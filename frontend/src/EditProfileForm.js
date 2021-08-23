@@ -4,7 +4,7 @@ import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstra
 import './EditProfileForm.css';
 
 const EditProfileForm = () => {
-  const { user, handleUpdate, setUser } = useContext(UserContext);
+  const { user, handleUpdate } = useContext(UserContext);
   const initialState = { 
     password: '', 
     'first-name': user ? user.firstName : '', 
