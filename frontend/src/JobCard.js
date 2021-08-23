@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Card, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
 const JobCard = ({ job, displayCompany, title, salary, equity }) => {
+  const [hasApplied, setHasApplied] = useState(false);
   return (
     <div>
       <Card className="my-4">
@@ -16,7 +17,7 @@ const JobCard = ({ job, displayCompany, title, salary, equity }) => {
             { displayCompany ? job.companyName : '' }
           </CardText>
           <div>
-            <Button onClick={handleClick} color="primary">Apply</Button>
+            <Button color="primary">{hasApplied ? 'Applied' : 'Apply'}</Button>
           </div>
         </CardBody>
       </Card>
