@@ -1,7 +1,7 @@
 import JoblyApi from '../api';
 
-const useApplyForJob = () => {
-
+const useApplyForJob = (user) => {
+  
 };
 
 export default useApplyForJob;
