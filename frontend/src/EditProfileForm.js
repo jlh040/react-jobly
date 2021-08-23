@@ -7,8 +7,8 @@ const EditProfileForm = () => {
   const { user, handleUpdate } = useContext(UserContext);
   const initialState = { 
     password: '', 
-    'first-name': user ? user.firstName : '', 
-    'last-name': user ? user.lastName : '', 
+    firstName: user ? user.firstName : '', 
+    lastName: user ? user.lastName : '', 
     email: user ? user.email : '' 
   };
   const [formData, setFormData] = useState(initialState);
@@ -21,7 +21,7 @@ const EditProfileForm = () => {
   };
   useEffect(() => {
     if (user)
-    setFormData({"first-name": user.firstName, "last-name": user.lastName, email: user.email});
+    setFormData({firstName: user.firstName, lastName: user.lastName, email: user.email});
   }, [user])
 
   return (
@@ -40,8 +40,8 @@ const EditProfileForm = () => {
             <Label className="EditProfileForm-label" for="first-name">First name</Label>
             <Input 
               type="text" 
-              name="first-name" 
-              value={formData['first-name']} 
+              name="firstName" 
+              value={formData.firstName} 
               id="first-name"
               onChange={handleChange} 
               placeholder="First name" 
@@ -53,8 +53,8 @@ const EditProfileForm = () => {
             <Label className="EditProfileForm-label" for="last-name">Last name</Label>
             <Input 
               type="text" 
-              name="last-name" 
-              value={formData['last-name']} 
+              name="lastName" 
+              value={formData.lastName} 
               id="last-name"
               onChange={handleChange} 
               placeholder="Last name" 
