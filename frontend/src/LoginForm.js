@@ -1,10 +1,11 @@
 import React, { useContext, useState } from 'react';
 import UserContext from './userContext';
 import './LoginForm.css';
-import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import { Container, Button, Alert, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 
 const LoginForm = () => {
-  const { user, tokenFromLogin: token, handleLogin } = useContext(UserContext);
+  const [showMessage, setShowMessage] = useState(null);
+  const { handleLogin } = useContext(UserContext);
   const initialState = { username: '', password: ''};
   const [formData, setFormData] = useState(initialState);
   const handleChange = e => {
@@ -16,7 +17,7 @@ const LoginForm = () => {
   
   return (
     <Container className="LoginForm">
-      <Form onSubmit={e => handleLogin(e, formData)} className="LoginForm-form">
+      <Form onSubmit={e => handleLogin(e, formData, setShowMessage)} className="LoginForm-form">
         <FormGroup row>
           <Col sm={{size: 6, offset: 3}}>
             <h2>Log In</h2>
@@ -44,12 +45,13 @@ const LoginForm = () => {
             />
           </Col>
         </FormGroup>
+        <Col sm={{size: 6, offset: 3}} className="LoginForm-alert">
+          {showMessage && <Alert color="danger">{showMessage}</Alert>}
+        </Col>
         <div className="LoginForm-button">
           <Button color="primary">Submit</Button>
         </div>
       </Form>
-      {token ? <h1>{token}</h1> : <h1>No token</h1>}
-      {user ? <h1>{user.email}</h1> : <h1>No user</h1>}
     </Container>
   )
 };
