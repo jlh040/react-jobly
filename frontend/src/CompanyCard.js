@@ -4,12 +4,13 @@ import {
   Card, CardText, CardBody,
   CardTitle, Button, CardLink
 } from 'reactstrap';
+import './CompanyCard.css';
 
 
 const CompanyCard = ({ company }) => {
   return (
-    <div>
-      <Card className="my-3" color="light">
+    <div className="CompanyCard">
+      <Card className="my-3">
         <CardBody>
           <CardTitle tag="h5">
             <CardLink tag={NavLink} exact to={`/companies/${company.handle}`}>
@@ -17,7 +18,6 @@ const CompanyCard = ({ company }) => {
             </CardLink>
           </CardTitle>
           <CardText>{company.description}</CardText>
-          <Button>Button</Button>
         </CardBody>
       </Card>
     </div>
