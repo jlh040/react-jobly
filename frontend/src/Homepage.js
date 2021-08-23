@@ -9,7 +9,7 @@ const Homepage = () => {
     <div className="Homepage">
       <Jumbotron className="Homepage-jumbotron">
         <h1 className="display-3">Jobly</h1>
-        <p className="lead">Your go-to place for the newest jobs.</p>
+        <p className="lead">Your go-to place for the best jobs.</p>
         {user && (
           <>
             <hr className="my-2" />
