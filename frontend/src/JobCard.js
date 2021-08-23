@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import useApplyForJob from './hooks/useApplyForJob';
 import {
   Card, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
 const JobCard = ({ job, displayCompany }) => {
+  const applyForJob = useApplyForJob();
   const [hasApplied, setHasApplied] = useState(false);
   return (
     <div>

@@ -5,7 +5,7 @@ import { Container } from 'reactstrap';
 import JobCard from './JobCard';
 
 const JobsList = ({ jobs, setJobs }) => {
-  const { JoblyApi } = useContext(UserContext)
+  const { JoblyApi, user } = useContext(UserContext)
   const handleSubmit = async (e, formData) => {
     e.preventDefault();
     const jobs = await JoblyApi.searchForJobs(formData.search);
@@ -14,7 +14,7 @@ const JobsList = ({ jobs, setJobs }) => {
   return (
     <Container >
       <SearchBar handleSubmit={handleSubmit} />
-      {jobs.map(job => <JobCard key={job.id} job={job} displayCompany />)}
+      {jobs.map(job => <JobCard user={user} key={job.id} job={job} displayCompany />)}
     </Container>
   )
 };
