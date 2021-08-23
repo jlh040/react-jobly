@@ -30,7 +30,7 @@ const NavBar = (props) => {
             {user && (
               <>
                 <NavItem>
-                  <NavLink tag={RRNavLink} exact to="/companies">Companies</NavLink>
+                  <NavLink tag={RRNavLink} to="/companies">Companies</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={RRNavLink} exact to="/jobs">Jobs</NavLink>
