@@ -4,20 +4,18 @@ import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'react
 
 const JobCard = ({ user, setUser, job, displayCompany }) => {
   const applyForJob = useApplyForJob();
-  const [hasApplied, setHasApplied] = useState(user.applications.includes(job.id));
+  const [hasApplied, setHasApplied] = useState(user ? user.applications.includes(job.id) : false);
   const handleClick = async () => {
     if (!hasApplied) {
       await applyForJob(user, job);
       setHasApplied(true);
     }
   };
-  // useEffect(() => {
-  //   if (!user.applications.includes(job.id)) {
-  //     user.applications.push(job.id);
-  //     setHasApplied(true);
-  //     setUser(currUser => ({...user}));
-  //   }
-  // },[user])
+  useEffect(() => {
+    if (user && user.applications.includes(job.id)) {
+      setHasApplied(true);
+    }
+  },[user])
   return (
     <div>
       <Card className="my-4">
