@@ -5,14 +5,7 @@ const useUserUpdate = (setUser) => {
   const history = useHistory();
   const handleUpdate = async (e, username, formData, setShowMessage) => {
     try {
-      e.preventDefault();
-
-      formData.firstName = formData['first-name'];
-      formData.lastName = formData['last-name'];
-      delete formData.password;
-      delete formData['first-name'];
-      delete formData['last-name'];
-
+      e.preventDefault();      
       setUser(await JoblyApi.updateUser(username, formData));
       history.push('/');
     }
@@ -20,7 +13,6 @@ const useUserUpdate = (setUser) => {
       let errors = err.map(message => <p>{message}</p>);
       setShowMessage(errors);
     }
-    
   };
 
   return handleUpdate;

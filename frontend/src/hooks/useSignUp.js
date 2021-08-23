@@ -14,9 +14,8 @@ const useSignUp = (JoblyApi) => {
       history.push('/');
     }
     catch(err) {
-      // let errors = err.map(message => <p>{message}</p>);
-      console.log(err)
-      // setShowMessage(errors);
+      let errors = err.map(message => <p>{message}</p>);
+      setShowMessage(errors);
     }
   };
   return [token, setToken, handleSignUp];

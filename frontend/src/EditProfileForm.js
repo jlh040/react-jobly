@@ -6,7 +6,6 @@ import './EditProfileForm.css';
 const EditProfileForm = () => {
   const { user, handleUpdate } = useContext(UserContext);
   const initialState = { 
-    password: '', 
     firstName: user ? user.firstName : '', 
     lastName: user ? user.lastName : '', 
     email: user ? user.email : '' 
