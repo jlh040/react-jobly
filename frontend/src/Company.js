@@ -26,7 +26,7 @@ const Company = () => {
       </div>
       <div>
         {hasLoaded ? (
-          company.jobs.map(job => <JobCard title={job.title} salary={job.salary} equity={job.equity} />)
+          company.jobs.map(job => <JobCard job={job} />)
         ) : <h4>Loading...</h4>} 
       </div>
     </Container>
