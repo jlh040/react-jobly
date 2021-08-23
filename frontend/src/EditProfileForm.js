@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import UserContext from './userContext';
-import { Container, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import { Container, Alert, Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
 import './EditProfileForm.css';
 
 const EditProfileForm = () => {
@@ -12,6 +12,7 @@ const EditProfileForm = () => {
     email: user ? user.email : '' 
   };
   const [formData, setFormData] = useState(initialState);
+  const [showMessage, setShowMessage] = useState(false);
   const handleChange = e => {
     setFormData(fData => ({
       ...fData,
@@ -25,7 +26,7 @@ const EditProfileForm = () => {
 
   return (
     <Container className="EditProfileForm">
-      <Form onSubmit={e => handleUpdate(e, user.username, formData)} className="EditProfileForm-form">
+      <Form onSubmit={e => handleUpdate(e, user.username, formData, setShowMessage)} className="EditProfileForm-form">
         <FormGroup row>
           <Col sm={{size: 6, offset: 3}}>
             <h2>Profile</h2>
@@ -73,6 +74,9 @@ const EditProfileForm = () => {
           />
           </Col>
         </FormGroup>
+        <Col sm={{size: 6, offset: 3}}>
+          {showMessage && <Alert color="danger">{showMessage}</Alert>}
+        </Col>
         <div className="EditProfileForm-button">
             <Button color="primary">Submit</Button>
         </div>
