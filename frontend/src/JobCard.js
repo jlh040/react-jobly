@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useApplyForJob from './hooks/useApplyForJob';
-import {
-  Card, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
-const JobCard = ({ job, displayCompany }) => {
+const JobCard = ({ user, setUser, job, displayCompany }) => {
   const applyForJob = useApplyForJob();
-  const [hasApplied, setHasApplied] = useState(false);
+  const [hasApplied, setHasApplied] = useState(user.applications.includes(job.id));
+  const handleClick = async () => {
+    if (!hasApplied) {
+      await applyForJob(user, job);
+      setHasApplied(true);
+    }
+  };
+  // useEffect(() => {
+  //   if (!user.applications.includes(job.id)) {
+  //     user.applications.push(job.id);
+  //     setHasApplied(true);
+  //     setUser(currUser => ({...user}));
+  //   }
+  // },[user])
   return (
     <div>
       <Card className="my-4">
@@ -19,7 +29,7 @@ const JobCard = ({ job, displayCompany }) => {
             { displayCompany ? job.companyName : '' }
           </CardText>
           <div>
-            <Button color="primary">{hasApplied ? 'Applied' : 'Apply'}</Button>
+            <Button onClick={handleClick} color="primary">{hasApplied ? 'Applied' : 'Apply'}</Button>
           </div>
         </CardBody>
       </Card>
