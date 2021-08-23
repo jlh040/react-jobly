@@ -1,5 +1,3 @@
-import React from 'react';
-
 const useIsLoggedIn = () => {
   let isLoggedIn;
   if (!JSON.parse(localStorage.getItem('token'))) {

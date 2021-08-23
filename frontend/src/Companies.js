@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Redirect } from 'react-router-dom';
 import UserContext from './userContext';
 import CompanyList from './CompanyList';
 
 const Companies = () => {
-  const { JoblyApi, user } = useContext(UserContext);
+  const { JoblyApi } = useContext(UserContext);
   const [hasLoaded, setHasLoaded] = useState(false);
   const [companies, setCompanies] = useState([]);
   useEffect(() => {
@@ -14,7 +13,7 @@ const Companies = () => {
       setHasLoaded(true);
     };
     getCompanies()
-  }, []);
+  }, [JoblyApi]);
 
   return (
     <div>

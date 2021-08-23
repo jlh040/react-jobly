@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const useLocalStorage = (key, tokenFromLogin, tokenFromSignUp, JoblyApi) => {
   const [state, setState] = useState(() => {
@@ -28,7 +28,7 @@ const useLocalStorage = (key, tokenFromLogin, tokenFromSignUp, JoblyApi) => {
     else {
       window.localStorage.setItem(key, `{"token": null}`);
     }
-  }, [state, tokenFromLogin, tokenFromSignUp]);
+  }, [state, tokenFromLogin, tokenFromSignUp, JoblyApi, key]);
   return [state, setState];
 };
 

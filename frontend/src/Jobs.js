@@ -13,7 +13,7 @@ const Jobs = () => {
       setHasLoaded(true);
     };
     getJobs()
-  }, []);
+  }, [JoblyApi]);
 
   return (
     <div>
