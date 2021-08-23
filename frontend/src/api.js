@@ -75,11 +75,6 @@ class JoblyApi {
   }
 
   static async signUp(userData) {
-    userData.firstName = userData['first-name'];
-    userData.lastName = userData['last-name'];
-    delete userData['first-name'];
-    delete userData['last-name'];
-
     const res = await this.request('auth/register', userData, 'post');
     return res.token;
   }

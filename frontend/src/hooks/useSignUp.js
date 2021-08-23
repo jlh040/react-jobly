@@ -7,14 +7,16 @@ const useSignUp = (JoblyApi) => {
   const handleSignUp = async (e, formData, setShowMessage) => {
     try {
       e.preventDefault();
+      console.log(formData);
       const respToken = await JoblyApi.signUp(formData);
       JoblyApi.token = respToken;
       setToken(respToken);
       history.push('/');
     }
     catch(err) {
-      let errors = err.map(message => <p>{message}</p>);
-      setShowMessage(errors);
+      // let errors = err.map(message => <p>{message}</p>);
+      console.log(err)
+      // setShowMessage(errors);
     }
   };
   return [token, setToken, handleSignUp];

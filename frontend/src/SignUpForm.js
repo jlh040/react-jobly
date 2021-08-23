@@ -6,7 +6,7 @@ import { Container, Button, Alert, Form, FormGroup, Label, Input, Col } from 're
 const SignUpForm = () => {
   const [showMessage, setShowMessage] = useState(false);
   const { handleSignUp } = useContext(UserContext);
-  const initialState = { username: '', password: '', 'first-name': '', 'last-name': '', email: '' };
+  const initialState = { username: '', password: '', firstName: '', lastName: '', email: '' };
   const [formData, setFormData] = useState(initialState);
   const handleChange = e => {
     setFormData(fData => ({
@@ -50,8 +50,8 @@ const SignUpForm = () => {
             <Label className="SignUpForm-label" for="first-name">First name</Label>
             <Input 
               type="text" 
-              name="first-name" 
-              value={formData['first-name']} 
+              name="firstName" 
+              value={formData.firstName} 
               id="first-name"
               onChange={handleChange} 
               placeholder="First name" 
@@ -63,8 +63,8 @@ const SignUpForm = () => {
             <Label className="SignUpForm-label" for="last-name">Last name</Label>
             <Input 
               type="text" 
-              name="last-name" 
-              value={formData['last-name']} 
+              name="lastName" 
+              value={formData.lastName} 
               id="last-name"
               onChange={handleChange} 
               placeholder="Last name" 
