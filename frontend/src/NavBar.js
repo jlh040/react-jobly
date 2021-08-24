@@ -10,6 +10,10 @@ import {
   Nav,
   NavItem,
   NavLink,
+  UncontrolledDropdown,
+  DropdownMenu,
+  DropdownItem,
+  DropdownToggle
 } from 'reactstrap';
 
 const NavBar = (props) => {
@@ -20,7 +24,7 @@ const NavBar = (props) => {
 
   return (
     <div className="NavBar">
-      <Navbar className="shadow-sm mb-2" color="light" expand="md">
+      <Navbar className="shadow-sm mb-2" color="light" light expand="md">
         <NavbarBrand color="primary">
           <NavLink tag={RRNavLink} exact to="/">Jobly</NavLink>
         </NavbarBrand>
